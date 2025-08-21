@@ -44,7 +44,7 @@
 ### 2. 백엔드 시스템 실행
 ```bash
 # 프로젝트 클론
-git clone https://github.com/HongEunK/RoomCheckProject.git
+git clone https://github.com/HongEunK/RoomCheck.git
 cd RoomCheck
 
 # AI 모델 다운로드 (llama3, Ollama 필요)
