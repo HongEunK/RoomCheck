@@ -1,0 +1,45 @@
+# ========================
+# 민감 정보 및 환경 변수
+# ========================
+# .env 파일은 절대 올리지 않음
+*.env.*
+.env
+
+# Docker 볼륨 데이터 (MySQL, Ollama)
+mysql-data/
+ollama_data/
+ollama_data_test/
+
+# ========================
+# Node.js (Backend, Mock-YOLO)
+# ========================
+# 의존성 폴더
+node_modules/
+# 로그 파일
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# 빌드 결과물
+dist/
+
+# ========================
+# Flutter (room-check-app)
+# ========================
+# 의존성 및 빌드 관련 파일
+.dart_tool/
+.packages
+.pub-cache/
+build/
+# 잠금 파일
+pubspec.lock
+
+# ========================
+# 운영체제 및 IDE 관련 파일
+# ========================
+# macOS
+.DS_Store
+# VS Code
+.vscode/
+# Android Studio
+.idea/
+*.iml

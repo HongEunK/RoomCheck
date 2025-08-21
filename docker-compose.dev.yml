@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  yolo-model:
+    build:
+      context: ./yolo-model
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./yolo-model:/app
+    networks:
+      - roomcheck-network-dev
+
+  mysql:
+    image: mysql:8.0
+    container_name: roomcheck-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword123
+      MYSQL_DATABASE: roomcheck_db
+      MYSQL_USER: roomcheck_user
+      MYSQL_PASSWORD: userpassword123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - roomcheck-network-dev
+
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - roomcheck-network-dev
+
+  backend:
+    build: ./backend
+    container_name: roomcheck-backend
+    restart: unless-stopped
+    depends_on:
+      - mysql
+      - yolo-model
+      - ollama
+    env_file:
+      - ./backend/.env.dev
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - roomcheck-network-dev
+    command: npm run start
+
+volumes:
+  mysql_data:
+  ollama_data:
+
+networks:
+  roomcheck-network-dev:
+    driver: bridge

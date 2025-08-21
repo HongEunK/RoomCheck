@@ -1,0 +1,6 @@
+ultralytics==8.1.25
+fastapi
+uvicorn
+opencv-python-headless
+numpy
+python-multipart

@@ -1,0 +1,101 @@
+names:
+- 침구류          # 0 bedding
+- 옷장            # 1 closet
+- 파일           # 2 file folder
+- 바닥            # 3 floor
+- 음식            # 4 food
+- 빨래 건조대       # 5 laundry drying rack
+- 거울            # 6 mirror
+- 펜             # 7 pen
+- 연필            # 8 pencil
+- 인형          # 9 teddy bear
+- 쓰레기          # 10 trash
+- 사람            # 11 person
+- 자전거          # 12 bicycle
+- 자동차          # 13 car
+- 오토바이        # 14 motorcycle
+- 비행기          # 15 airplane
+- 버스            # 16 bus
+- 기차            # 17 train
+- 트럭            # 18 truck
+- 보트            # 19 boat
+- 신호등          # 20 traffic light
+- 소화전          # 21 fire hydrant
+- 정지 표지판       # 22 stop sign
+- 주차 미터기       # 23 parking meter
+- 벤치            # 24 bench
+- 새             # 25 bird
+- 고양이          # 26 cat
+- 개             # 27 dog
+- 말             # 28 horse
+- 양             # 29 sheep
+- 소             # 30 cow
+- 코끼리          # 31 elephant
+- 곰             # 32 bear
+- 얼룩말          # 33 zebra
+- 기린            # 34 giraffe
+- 배낭            # 35 backpack
+- 우산            # 36 umbrella
+- 핸드백          # 37 handbag
+- 넥타이          # 38 tie
+- 여행가방         # 39 suitcase
+- 원반            # 40 frisbee
+- 스키            # 41 skis
+- 스노보드         # 42 snowboard
+- 공             # 43 sports ball
+- 연             # 44 kite
+- 야구 방망이       # 45 baseball bat
+- 야구 글러브       # 46 baseball glove
+- 스케이트보드       # 47 skateboard
+- 서핑보드         # 48 surfboard
+- 테니스 라켓       # 49 tennis racket
+- 병             # 50 bottle
+- 와인잔          # 51 wine glass
+- 컵             # 52 cup
+- 포크            # 53 fork
+- 칼             # 54 knife
+- 숟가락          # 55 spoon
+- 그릇            # 56 bowl
+- 바나나          # 57 banana
+- 사과            # 58 apple
+- 샌드위치         # 59 sandwich
+- 오렌지          # 60 orange
+- 브로콜리         # 61 broccoli
+- 당근            # 62 carrot
+- 핫도그          # 63 hot dog
+- 피자            # 64 pizza
+- 도넛            # 65 donut
+- 케이크          # 66 cake
+- 의자            # 67 chair
+- 소파            # 68 couch
+- 화분            # 69 potted plant
+- 침대            # 70 bed
+- 식탁            # 71 dining table
+- 변기            # 72 toilet
+- 텔레비전         # 73 tv
+- 노트북          # 74 laptop
+- 마우스          # 75 mouse
+- 리모컨          # 76 remote
+- 키보드          # 77 keyboard
+- 휴대폰          # 78 cell phone
+- 전자레인지        # 79 microwave
+- 오븐            # 80 oven
+- 토스터          # 81 toaster
+- 싱크대          # 82 sink
+- 냉장고          # 83 refrigerator
+- 책             # 84 book
+- 시계            # 85 clock
+- 꽃병            # 86 vase
+- 가위            # 87 scissors
+- 헤어 드라이어      # 88 hair drier
+- 칫솔            # 89 toothbrush
+nc: 90
+# roboflow:
+#   license: CC BY 4.0
+#   project: roomcheckproject
+#   url: https://universe.roboflow.com/eunhong/roomcheckproject/dataset/2
+#   version: 2
+#   workspace: eunhong
+test: ../test/images
+train: ../train/images
+val: ../valid/images

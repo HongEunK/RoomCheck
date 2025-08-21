@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  mock-yolo:
+    build: ./mock-yolo
+    container_name: mock-yolo
+    restart: unless-stopped
+    ports:
+    - "8001:8000"  # 개발 환경 yolo-model과 포트 충돌 방지
+    networks:
+      - roomcheck-network-test
+
+  mysql-test:
+    image: mysql:8.0
+    container_name: roomcheck-mysql-test
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword123
+      MYSQL_DATABASE: roomcheck_db_test
+      MYSQL_USER: roomcheck_user
+      MYSQL_PASSWORD: userpassword123
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data_test:/var/lib/mysql
+    networks:
+      - roomcheck-network-test
+
+  ollama-test:
+    image: ollama/ollama
+    container_name: ollama-test
+    restart: unless-stopped
+    ports:
+      - "11435:11434"
+    volumes:
+      - ollama_data_test:/root/.ollama
+    # cpus: 4.0 # CPU 코어 4개 사용으로 제한
+    # mem_limit: 4g # 메모리를 4GB로 제한
+    networks:
+      - roomcheck-network-test
+
+  backend-test:
+    build: ./backend
+    container_name: roomcheck-backend-test
+    restart: unless-stopped
+    depends_on:
+      - mysql-test
+      - mock-yolo
+      - ollama-test
+    env_file:
+      - ./backend/.env.test
+    ports:
+      - "3002:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - roomcheck-network-test
+    command: npm run start
+
+volumes:
+  mysql_data_test:
+  ollama_data_test:
+
+networks:
+  roomcheck-network-test:
+    driver: bridge
